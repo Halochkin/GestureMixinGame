@@ -1,0 +1,37 @@
+#playfield {
+    height: 500px;
+    width: 500px;
+    background-color: #230f29;
+    display: block;
+}
+
+.triangle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 50%;
+    transform-origin: center bottom;
+    overflow: hidden;
+}
+.circle {
+    height: 100%;
+    width: 100%;
+    background: silver;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform-origin: center bottom;
+    transform: rotate(90deg);
+}
+
+
+
+.chart {
+    position: relative;
+    overflow: hidden; /* .triangle выходят за пределы */
+}
+
+.chart:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
