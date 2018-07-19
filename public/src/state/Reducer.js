@@ -9,16 +9,23 @@ export class Reducer {
   }
 
   static pickerCoord(state, detail) {
-    state = JoiGraph.setIn(state, "pickerX", state.pickerX + detail.distX);
-    state = JoiGraph.setIn(state, "pickerY", state.pickerY + detail.distY);
+
     state = JoiGraph.setIn(state, "durationMs", detail.durationMs);
     return state;
   }
 
 
+  static pickerRotation(state, detail) {
+    state = JoiGraph.setIn(state, "rotation", state.rotation + detail.rotation);
+    return state;
+  }
 
-static pickerRotation(state, detail){
-    state = JoiGraph.setIn(state, "pickerRotate", )
-}
+  static pickerSettings(state, detail) {
+    state = JoiGraph.setIn(state, "pickerX", state.pickerX + detail.distX * 1.7);
+    state = JoiGraph.setIn(state, "pickerY", state.pickerY + detail.distY * 1.7);
+    state = JoiGraph.setIn(state, "rotateX", -75);
+    return state;
+  }
+
 
 }
