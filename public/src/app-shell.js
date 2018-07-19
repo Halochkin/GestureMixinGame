@@ -31,9 +31,7 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
             }
           </style>
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <div id="shuriken" style="transform: rotateX(-60deg) rotateZ(${state.rotation}deg);"></div>
-       
-`;
+        <div id="shuriken" style="transform: rotateX(-60deg) rotateZ(${state.rotation}deg);"></div>`;
   }
 
 
