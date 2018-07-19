@@ -1,33 +1,15 @@
-/*color-picker{*/
-/*position: absolute;*/
-/*display: block;*/
-/*height: 200px;*/
-/*width: 200px;*/
-/*overflow: hidden;*/
-/*background-size: cover;*/
-/*background-image: url("https://fidgetcircle.com/img/products/zed-ninja-shuriken-0dc23459.png");*/
-/*transform: rotateX(10deg);*/
-/*}*/
 
-/*shell-app {*/
-/*height: 200px;*/
-/*width: 200px;*/
-/*display: block;*/
-/*background-color: green;*/
-/*position: absolute;i*/
+/*#hand {*/
+    /*height: 144px;*/
+    /*width: 304px;*/
+    /*display: block;*/
+    /*margin-top: 556px;*/
+    /*margin-left: 596px;*/
+    /*z-index: 2;*/
+    /*position: absolute;*/
+    /*background-size: cover;*/
+    /*background-image: url("https://banner2.kisspng.com/20180529/txs/kisspng-thumb-gift-card-hand-hand-holding-flower-5b0cd791eed475.5204294815275682739783.jpg");*/
 /*}*/
-
-#hand {
-    height: 144px;
-    width: 304px;
-    display: block;
-    margin-top: 556px;
-    margin-left: 596px;
-    z-index: 2;
-    position: absolute;
-    background-size: cover;
-    background-image: url("https://banner2.kisspng.com/20180529/txs/kisspng-thumb-gift-card-hand-hand-holding-flower-5b0cd791eed475.5204294815275682739783.jpg");
-}
 
 #ninjaGame {
     position: fixed;
@@ -60,19 +42,11 @@
     background-image: url("https://fidgetcircle.com/img/products/zed-ninja-shuriken-0dc23459.png");
 }
 
-#main {
-    height: 500px;
-    width: 500px;
-    position: absolute;
-    background-color: darkkhaki;
-    display: block;
-}
-
 shell-app{
     position: absolute;
     height: 500px;
     width: 500px;
-    transition: all 1s cubic-bezier(0.39, 0.58, 0.57, 1);
+    transition: 0s;
 }
 
 game-info {
