@@ -20,7 +20,7 @@ body{
     width: 1200px;
     background-size: cover;
     background-image: url("https://cdn2.f-cdn.com/contestentries/71989/10703005/534d34c6e0817_thumb900.jpg");
-    touch-action: none;
+    /*touch-action: none;*/
 }
 
 #shuriken {
@@ -31,7 +31,7 @@ body{
     overflow: hidden;
     background-size: cover;
     background-image: url("https://fidgetcircle.com/img/products/zed-ninja-shuriken-0dc23459.png");
-    touch-action: none;
+    /*touch-action: none;*/
 }
 
 shell-app{
