@@ -54,7 +54,6 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
     this.style.transition = "all " + detail.durationMs + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 30);
   }
-
 }
 
 customElements.define("shell-app", ShellApp);
