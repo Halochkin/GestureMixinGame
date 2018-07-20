@@ -5,8 +5,8 @@ export class Reducer {
 
   static startState(state) {
     state = JoiGraph.setIn(state, "Y", 27);
-    state = JoiGraph.setIn(state, "targetCenterX", state.targetX + 200);
-    state = JoiGraph.setIn(state, "targetCenterY", state.targetY + 200);
+    state = JoiGraph.setIn(state, "targetCenterX", state.targetX + 250);
+    state = JoiGraph.setIn(state, "targetCenterY", state.targetY + 250);
     return state
   }
 

@@ -10,9 +10,9 @@ class ShellApp extends (HTMLElement) { //[1]
     super();
     // this.attachShadow({mode: "open"});
     window.joiStore = new JoiStore({
-      startX: (window.innerWidth - 400) / 2,
-      startY: window.innerHeight - 450,
-      targetX: (window.innerWidth - 400) / 2,
+      startX: (window.innerWidth - 500) / 2,
+      startY: window.innerHeight - 550,
+      targetX: (window.innerWidth - 500) / 2,
       targetY: window.innerHeight - (window.innerHeight - 300),
       rotatioN: 0,
       xdiff: undefined,
@@ -36,8 +36,7 @@ class ShellApp extends (HTMLElement) { //[1]
     this.innerHTML = `
 
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <h3 style="float: left;">THROWS: ${joiStore.state.throws}</h3>
-        <h3 style="float: right;">SCORES: ${joiStore.state.scores}</h3>
+        <game-panel></game-panel>
         <game-info></game-info>
         <game-shurikien></game-shurikien>
         <game-target></game-target>

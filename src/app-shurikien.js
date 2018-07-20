@@ -1,6 +1,7 @@
 import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
 import {Reducer} from "./state/Reducer.js";
+import {GamePanel} from "./panel.js";
 
 class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   constructor() {
@@ -43,10 +44,11 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
     this.spinEvent = true;
     this.style.transition = "all " + 3 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 50);
-    this.style.transform = `rotateZ(${joiStore.state.rotatioN}deg`;
+    this.style.transform = `rotateZ(${joiStore.state.rotatioN}deg `;
   }
 
   checkFunc() {
+    GamePanel.refresh();
     let elem = document.createElement("game-shurikien");
     let shell = document.querySelector("shell-app");
     shell.appendChild(elem);

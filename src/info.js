@@ -3,6 +3,10 @@ import {Reducer} from "./state/Reducer.js";
 export class GameInfo extends (HTMLElement) {
   constructor() {
     super();
+    this.innerHTML =`
+    <h3 style="float: left;">THROWS: ${joiStore.state.throws}</h3>
+        <h3 style="float: right;">SCORES: ${joiStore.state.scores}</h3>
+    `
   }
 
   static get observedAttributes() {
