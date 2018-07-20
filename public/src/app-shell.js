@@ -12,8 +12,8 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
     window.joiStore = new JoiStore({
       view: "small",
       Y: 40,
-      pickerX: 400,
-      pickerY: 420,
+      pickerX: 300,
+      pickerY: 1020,
       durationMs: 0,
       rotation: 1,
     });
@@ -31,7 +31,7 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
             }
           </style>
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <div id="shuriken" style="transform: rotateX(-60deg) rotateZ(${state.rotation}deg);"></div>`;
+        <div id="shuriken" style="transform: rotateX(-67deg) rotateZ(${state.rotation}deg);"></div>`;
   }
 
 
