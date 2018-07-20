@@ -25,8 +25,9 @@ body{
 
 #shuriken {
     display: block;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 600px;
+    margin: auto;
     position: relative;
     overflow: hidden;
     background-size: cover;
@@ -43,8 +44,9 @@ shell-app{
 }
 
 game-info {
-    height: 700px;
-    width: 1200px;
+    height: 938px;
+    margin: 10px;
+    width: 951px;
     background-image: url("../pictures/ninja.png");
     background-size: cover;
     display: none;

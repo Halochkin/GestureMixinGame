@@ -12,7 +12,7 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
     window.joiStore = new JoiStore({
       view: "small",
       Y: 40,
-      pickerX: 300,
+      pickerX: 20,
       pickerY: 1020,
       durationMs: 0,
       rotation: 1,
