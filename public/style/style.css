@@ -39,7 +39,7 @@ shell-app{
     position: absolute;
     height: 1000px;
     width: 1000px;
-    transition: 0s;
+    /*transition: 0s;*/
     /*touch-action: none;*/
     /*position: relative;*/
     overflow: hidden;

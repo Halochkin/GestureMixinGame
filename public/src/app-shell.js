@@ -13,7 +13,7 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
       view: "small",
       Y: 40,
       pickerX: 20,
-      pickerY: 1020,
+      pickerY: 900,
       durationMs: 0,
       rotation: 1,
     });
@@ -28,7 +28,7 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
             :host{
               margin-top: ${state.pickerY}px;
               margin-left: ${state.pickerX}px;
-              transform: rotateX(-67deg) rotate(${state.rotation}deg);
+              transform: rotateX(-67deg) rotate(${state.rotation}deg) scale(1);
             }
           </style>
         <link rel="stylesheet" type="text/css" href="../style/style.css">
@@ -41,13 +41,14 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
     // if (!this.spinEvent) {
     //   document.querySelector("game-info").setAttribute("message", "block");
     // } else {
-      document.querySelector("game-info").setAttribute("message", "none");
-      this.style.transition = "all " + 1 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
-      this.style.transform = `scale(0.0) rotateX(-75deg)`;
-      joiStore.dispatch(Reducer.pickerSettings, detail);
-      // setTimeout(function () {
-      //   GameTarget.repeatFunc()
-      // },1000)
+    document.querySelector("game-info").setAttribute("message", "none");
+    this.style.transition = "all "  + (detail.durationMs*3) + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
+    this.style.transform = `scale(0.01) rotateX(-75deg)`;
+
+    joiStore.dispatch(Reducer.pickerSettings, detail);
+    // setTimeout(function () {
+    //   GameTarget.repeatFunc()
+    // },1000)
     // }
   }
 
