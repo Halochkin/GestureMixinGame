@@ -36,17 +36,17 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
 
 
   flingCallback(detail) {
-    if (!this.spinEvent) {
-      document.querySelector("game-info").setAttribute("message", "block");
-    } else {
+    // if (!this.spinEvent) {
+    //   document.querySelector("game-info").setAttribute("message", "block");
+    // } else {
       document.querySelector("game-info").setAttribute("message", "none");
       this.style.transition = "all " + 1 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
       this.style.transform = `scale(0.0) rotateX(-75deg)`;
       joiStore.dispatch(Reducer.pickerSettings, detail);
-      setTimeout(function () {
-        GameTarget.repeatFunc()
-      },1000)
-    }
+      // setTimeout(function () {
+      //   GameTarget.repeatFunc()
+      // },1000)
+    // }
   }
 
   spinCallback(detail) {
