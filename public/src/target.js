@@ -3,8 +3,14 @@ import {Reducer} from "./state/Reducer.js";
 export class GameTarget extends (HTMLElement) {
   constructor() {
     super();
-    this.attachShadow({mode: 'open'});
+    // this.attachShadow({mode: 'open'});
     // this.render();
+  }
+
+  connectedCallback() {
+    this.style.marginLeft = joiStore.state.targetX + "px";
+    this.style.marginTop = joiStore.state.targetY + "px";
+
   }
 
   static get observedAttributes() {
@@ -15,17 +21,6 @@ export class GameTarget extends (HTMLElement) {
     this.style.display = newValue;
   }
 
-  static repeatFunc() {
-    // document.getElementById("hand").style.transform = "translate(50px)";
-    // let a = document.querySelector("shell-app");
-    // let list = document.getElementById("shuriken");
-    // let shuriken = document.removeChild(a);
-
-
-    // shuriken.style.marginLeft = "420px";
-    // shuriken.style.marginTop = "400px";
-    // shuriken.style.scale = "1";
-  }
 }
 
 customElements.define("game-target", GameTarget);

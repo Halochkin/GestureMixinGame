@@ -1,10 +1,10 @@
 import {Reducer} from "./state/Reducer.js";
 
-class GameInfo extends (HTMLElement) {
+export class GameInfo extends (HTMLElement) {
   constructor() {
     super();
     // this.attachShadow({mode: 'open'});
-    // this.render();
+    this.innerText = "0";
   }
 
   static get observedAttributes() {
@@ -15,13 +15,16 @@ class GameInfo extends (HTMLElement) {
     this.style.display = newValue;
   }
 
+  static refresh() {
+    this.innerText = `${joiStore.state.scores}`;
+  }
 
- //  render() {
- //    this.shadowRoot.innerHTML = `
- // <link rel="stylesheet" type="text/css" href="../style/style.css">
- //    <div id="ninja"></div>
- //    `
- //  }
+  //  render() {
+  //    this.shadowRoot.innerHTML = `
+  // <link rel="stylesheet" type="text/css" href="../style/style.css">
+  //    <div>SCORES: ${joiStore.state.scores}</div>
+  //    `
+  //  }
 
 }
 

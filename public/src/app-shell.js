@@ -2,61 +2,76 @@ import {JoiStore, JoiGraph} from "https://unpkg.com/joistate@0.0.18/src/JoiStore
 import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
 import {Reducer} from "./state/Reducer.js";
-import {GameTarget} from "./target.js";
+import {GameInfo} from "./info.js";
 
-class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
+class ShellApp extends (HTMLElement) { //[1]
 
   constructor() {
     super();
-    this.attachShadow({mode: "open"});
+    // this.attachShadow({mode: "open"});
     window.joiStore = new JoiStore({
-      view: "small",
-      Y: 40,
-      pickerX: 20,
-      pickerY: 900,
-      durationMs: 0,
-      rotation: 1,
+      startX: (window.innerWidth - 400) / 2,
+      startY: window.innerHeight - 450,
+      targetX: (window.innerWidth - 400) / 2,
+      targetY: window.innerHeight - (window.innerHeight - 300),
+      rotatioN: 0,
+      xdiff: undefined,
+      ydiff: undefined,
+      scores:0,
+      throws: 10,
     });
-    joiStore.observe([""], this.render.bind(this));
-    setTimeout(() => joiStore.dispatch(Reducer.xChange), 10);
+    setTimeout(() => joiStore.dispatch(Reducer.startState), 10);
+    joiStore.observe(["Y"], this.render.bind(this));
+
+
+    joiStore.compute(["targetCenterX", "newX"], "xdiff", Reducer.xDiff);
+    joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
+
+
     this.spinEvent = false;
   }
 
   render(state) {
-    this.shadowRoot.innerHTML = `
-          <style>
-            :host{
-              margin-top: ${state.pickerY}px;
-              margin-left: ${state.pickerX}px;
-              transform: rotateX(-67deg) rotate(${state.rotation}deg) scale(1);
-            }
-          </style>
+    this.style.transition = "3s";
+
+    this.innerHTML = `
+
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <!--<div id="shuriken" style="transform: rotateX(-67deg) rotateZ(${state.rotation}deg);"></div>-->
+        <game-info></game-info>
+        <game-shurikien></game-shurikien>
+        <game-info></game-info>
+        <game-target></game-target>
+     
 `;
   }
 
 
-  flingCallback(detail) {
-    // if (!this.spinEvent) {
-    //   document.querySelector("game-info").setAttribute("message", "block");
-    // } else {
-    document.querySelector("game-info").setAttribute("message", "none");
-    this.style.transition = "all "  + (detail.durationMs*3) + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
-    this.style.transform = `scale(0.01) rotateX(-75deg)`;
+  // flingCallback(detail) {
+  //   // if (!this.spinEvent) {
+  //   //   document.querySelector("game-info").setAttribute("message", "block");
+  //   // } else {
+  //   // document.querySelector("game-info").setAttribute("message", "none");
+  //   // this.style.transition = "all "  + (detail.durationMs*3) + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
+  //   // this.style.transform = `scale(0.01) rotateX(-75deg)`;
+  //
+  //   // this.style.transform = `rotate(${prevSpinAngle + e.detail.rotation * 5}deg)`;
+  //   this.style.backgroundColor = "yellow";
+  //   this.style.transition = "1s";
+  //   this.innerText = "FLING";
+  //   this.style.transition = "0.3s";
+  //
+  //
+  //   // joiStore.dispatch(Reducer.pickerSettings, detail);
+  //
+  //
+  //
+  // }
 
-    joiStore.dispatch(Reducer.pickerSettings, detail);
-    // setTimeout(function () {
-    //   GameTarget.repeatFunc()
-    // },1000)
-    // }
-  }
-
-  spinCallback(detail) {
-    this.spinEvent = true;
-    this.style.transition = "all " + detail.durationMs + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
-    setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 30);
-  }
+  // spinCallback(detail) {
+  //   this.spinEvent = true;
+  //   this.style.transition = "all " + detail.durationMs + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
+  //   setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 30);
+  // }
 }
 
 customElements.define("shell-app", ShellApp);
