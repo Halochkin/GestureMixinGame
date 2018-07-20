@@ -3,8 +3,6 @@ import {Reducer} from "./state/Reducer.js";
 export class GameInfo extends (HTMLElement) {
   constructor() {
     super();
-    // this.attachShadow({mode: 'open'});
-    this.innerText = "0";
   }
 
   static get observedAttributes() {

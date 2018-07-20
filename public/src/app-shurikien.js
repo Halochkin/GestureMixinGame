@@ -24,7 +24,8 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
       joiStore.dispatch(Reducer.pickerSettings, detail);
 
 
-
+      joiStore.compute(["targetCenterX", "newX"], "xdiff", Reducer.xDiff);
+      joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
       joiStore.dispatch(Reducer.controlReducer);
 
 

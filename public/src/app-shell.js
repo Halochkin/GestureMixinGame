@@ -17,7 +17,7 @@ class ShellApp extends (HTMLElement) { //[1]
       rotatioN: 0,
       xdiff: undefined,
       ydiff: undefined,
-      scores:0,
+      scores: 0,
       throws: 10,
     });
     setTimeout(() => joiStore.dispatch(Reducer.startState), 10);
@@ -26,7 +26,6 @@ class ShellApp extends (HTMLElement) { //[1]
 
     joiStore.compute(["targetCenterX", "newX"], "xdiff", Reducer.xDiff);
     joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
-
 
     this.spinEvent = false;
   }
@@ -37,9 +36,10 @@ class ShellApp extends (HTMLElement) { //[1]
     this.innerHTML = `
 
         <link rel="stylesheet" type="text/css" href="../style/style.css">
+        <h3 style="float: left;">THROWS: ${joiStore.state.throws}</h3>
+        <h3 style="float: right;">SCORES: ${joiStore.state.scores}</h3>
         <game-info></game-info>
         <game-shurikien></game-shurikien>
-        <game-info></game-info>
         <game-target></game-target>
      
 `;
