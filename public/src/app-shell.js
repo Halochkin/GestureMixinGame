@@ -28,10 +28,12 @@ class ShellApp extends PinchGesture(DragFlingGesture(HTMLElement)) { //[1]
             :host{
               margin-top: ${state.pickerY}px;
               margin-left: ${state.pickerX}px;
+              transform: rotateX(-67deg) rotate(${state.rotation}deg);
             }
           </style>
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <div id="shuriken" style="transform: rotateX(-67deg) rotateZ(${state.rotation}deg);"></div>`;
+        <!--<div id="shuriken" style="transform: rotateX(-67deg) rotateZ(${state.rotation}deg);"></div>-->
+`;
   }
 
 

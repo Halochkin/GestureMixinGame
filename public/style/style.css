@@ -40,7 +40,12 @@ shell-app{
     height: 1000px;
     width: 1000px;
     transition: 0s;
-    touch-action: none;
+    /*touch-action: none;*/
+    /*position: relative;*/
+    overflow: hidden;
+    display: block;
+    background-size: cover;
+    background-image: url("https://fidgetcircle.com/img/products/zed-ninja-shuriken-0dc23459.png");
 }
 
 game-info {
