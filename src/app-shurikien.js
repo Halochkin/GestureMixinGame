@@ -1,7 +1,6 @@
 import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
 import {Reducer} from "./state/Reducer.js";
-import {GamePanel} from "./panel.js";
 
 class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   constructor() {
@@ -15,7 +14,6 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
     this.style.marginTop = joiStore.state.startY + "px";
     this.style.marginLeft = joiStore.state.startX + "px";
   }
-
 
   flingCallback(detail) {
     if (!this.spinEvent) {
@@ -44,15 +42,10 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   checkFunc() {
     let elem = document.createElement("game-shurikien");
     let shell = document.querySelector("shell-app");
-    shell.appendChild(elem);
-
+    setTimeout(function () {
+      shell.appendChild(elem);
+    }, 300);
   }
-
-  static reload(){
-    let shell = document.querySelectorAll("game-shurikien");
-
-  }
-
 }
 
 customElements.define("game-shurikien", GameShurik);
