@@ -14,7 +14,6 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
     let t = window.innerWidth;
     this.style.marginTop = joiStore.state.startY + "px";
     this.style.marginLeft = joiStore.state.startX + "px";
-
   }
 
 
@@ -23,20 +22,15 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
       document.querySelector("game-info").setAttribute("message", "block");
     } else {
       joiStore.dispatch(Reducer.pickerSettings, detail);
-
-
       joiStore.compute(["targetCenterX", "newX"], "xdiff", Reducer.xDiff);
       joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
       joiStore.dispatch(Reducer.controlReducer);
-
-
       document.querySelector("game-info").setAttribute("message", "none");
       this.style.transition = "all " + detail.durationMs + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
       this.style.marginTop = joiStore.state.newY + "px";
       this.style.marginLeft = joiStore.state.newX + "px";
       this.style.transform = `scale(0.2) rotateX(-75deg) rotate(${joiStore.state.rotatioN}deg`;
       setTimeout(this.checkFunc(), detail.durationMs);
-      // setTimeout(), detail.durationMs);
     }
   }
 
@@ -48,10 +42,15 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   checkFunc() {
-    GamePanel.refresh();
     let elem = document.createElement("game-shurikien");
     let shell = document.querySelector("shell-app");
     shell.appendChild(elem);
+
+  }
+
+  static reload(){
+    let shell = document.querySelectorAll("game-shurikien");
+
   }
 
 }
