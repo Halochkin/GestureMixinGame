@@ -28,7 +28,7 @@ gesture for it you can add a callback/event to the parent element.
 Quite often, when using gestures, you can activate the browser's built-in gestures (which are used to navigate the page, zoom in and out of scrolling and other browser control functions) at the same time as a call/event that will call for unnecessary changes to the field of view.
 ####  Why this happens and how to fix it?
 This problem will occur every time the largest item size is larger than the device display size.<br>
-You can solve this problem in 3 ways
+You can solve this problem this ways:
 ### 1. Using `touch-action:` CSS property
 The `touch-action` CSS property determines whether touch input MAY trigger default behavior supplied by user agent. This includes, but is not limited to, behaviors such as panning or zooming. 
 The result of touching an element depends on the value of the touch-action property and the standard settings for touching the element and its ancestors. You can selectively disable the standard touch behavior, thus preventing sending if the behavior is not required.<br>
