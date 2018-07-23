@@ -13,18 +13,15 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
     super.connectedCallback();
     this.style.marginTop = joiStore.state.startY + "px";
     this.style.marginLeft = joiStore.state.startX + "px";
-    this.addEventListener("fling", this._suka);
   }
 
   flingCallback(detail) {
     if (!this.spinEvent) {
       joiStore.dispatch(Reducer.infoReducer, "block");
     } else {
-      joiStore.dispatch(Reducer.infoReducer, "none");
-      joiStore.dispatch(Reducer.controlReducer);
       joiStore.dispatch(Reducer.pickerSettings, detail);
-      joiStore.compute(["targetCenterX", "newX"], "xdiff", Reducer.xDiff);
-      joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
+      joiStore.dispatch(Reducer.controlReducer);
+      joiStore.dispatch(Reducer.infoReducer, "none");
       this.style.transition = "all " + detail.durationMs + "ms cubic-bezier(0.39, 0.58, 0.57, 1)";
       this.style.marginTop = joiStore.state.newY + "px";
       this.style.marginLeft = joiStore.state.newX + "px";
@@ -34,7 +31,6 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   spinCallback(detail) {
-    alert("CHILD");
     this.spinEvent = true;
     this.style.transition = "all " + 3 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 50);
@@ -44,9 +40,16 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   checkFunc() {
     let elem = document.createElement("game-shurikien");
     let shell = document.querySelector("shell-app");
+    let element = shell.shadowRoot.querySelectorAll("game-shurikien");
     setTimeout(function () {
-      shell.appendChild(elem);
+      shell.shadowRoot.appendChild(elem);
     }, 300);
+    if (joiStore.state.throws <= 0) {
+      let t = shell.shadowRoot.children.length;
+      for (let index = 0, len = element.length; index < len; index++) {
+        element[index].parentNode.removeChild(element[index]);
+      }
+    }
   }
 }
 

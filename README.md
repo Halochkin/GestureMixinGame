@@ -35,13 +35,7 @@ class Parent extends PinchGesture(HTMLElement){
     let child = document.querySelector("child-element");
     child.style.transform = `rotate(${detail.rotation}deg`;
   }
-<<<<<<< HEAD
 }
-=======
-  
-}
-
->>>>>>> github2/master
 class Child extends DragFlingGesture(HTMLElement){
   
     constructor(){

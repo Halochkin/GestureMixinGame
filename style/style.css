@@ -1,6 +1,6 @@
 
 body {
-margin: 0px;
+    margin: 0px;
 }
 
 shell-app {
@@ -28,12 +28,14 @@ game-info {
     height: 938px;
     margin: 10px;
     width: 951px;
+    z-index: 2;
     background-image: url("../pictures/ninja.png");
     background-size: cover;
     display: none;
     position: absolute;
 }
-game-target{
+
+game-target {
     position: absolute;
     height: 470px;
     width: 400px;
@@ -41,19 +43,22 @@ game-target{
     background-size: cover;
     display: block;
 }
-game-panel{
+
+game-panel {
     color: white;
-    /*position: absolute;*/
     font-size: 3vh;
-margin-top: 5px;
+    margin-top: 5px;
 }
-#throws{
+
+#throws {
     left: 10px;
 }
-#scores{
+
+#scores {
     right: 10px;
 }
-h3{
+
+h3 {
     position: absolute;
     margin: 0px;
 }

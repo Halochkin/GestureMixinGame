@@ -15,8 +15,8 @@ export class Reducer {
   }
 
   static pickerSettings(state, detail) {
-    state = JoiGraph.setIn(state, "newX", state.startX + detail.distX);
-    state = JoiGraph.setIn(state, "newY", state.startY + detail.distY);
+    state = JoiGraph.setIn(state, "newX", state.startX + detail.distX * 1.5);
+    state = JoiGraph.setIn(state, "newY", state.startY + detail.distY * 1.8);
     state = JoiGraph.setIn(state, "rotatioN", 0);
     return state;
   }
@@ -56,10 +56,11 @@ export class Reducer {
       state = JoiGraph.setIn(state, "scores", state.scores + 1);
     }
     state = JoiGraph.setIn(state, "throws", state.throws - 1);
-    if (state.throws === 0) {
+    if (state.throws < 0) {
       state = JoiGraph.setIn(state, "scores", 0);
       state = JoiGraph.setIn(state, "throws", 10);
-      document.location.reload();
+      // document.location.reload();
+
     }
     return state;
   }
