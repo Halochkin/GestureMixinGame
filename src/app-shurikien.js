@@ -1,4 +1,4 @@
-import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
+import {PinchGesture} from "../../ComponentsJS/Gestures/PinchGesureMixin/src/PinchGestureMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
 import {Reducer} from "./state/Reducer.js";
 
@@ -31,7 +31,6 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   spinCallback(detail) {
-    alert(detail.lastspinMotion);
     this.spinEvent = true;
     this.style.transition = "all " + 5 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 50);
