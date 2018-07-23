@@ -35,7 +35,13 @@ class Parent extends PinchGesture(HTMLElement){
     let child = document.querySelector("child-element");
     child.style.transform = `rotate(${detail.rotation}deg`;
   }
+<<<<<<< HEAD
 }
+=======
+  
+}
+
+>>>>>>> github2/master
 class Child extends DragFlingGesture(HTMLElement){
   
     constructor(){
@@ -54,8 +60,12 @@ class Child extends DragFlingGesture(HTMLElement){
 [1]  `spin` gesture will be triggered outside the child element. This will significantly increase the area to activate the event.
 [2]   since two fingers are not required for `drag` event, it means that it can be called directly from the element.<br>
 This example demonstrates how you can use a mixin outside of an element.
+<<<<<<< HEAD
  #### Dark side of the Shadow DOM
  If you use `Shadow DOM` you may notice that callbacks do not fire in components inside the shadow tree.
  
  
  ## Editing and continue to follow ...
+=======
+ ## Editing and continue to follow ...
+>>>>>>> github2/master
