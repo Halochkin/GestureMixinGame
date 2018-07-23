@@ -12,11 +12,13 @@ When you use gesture mixins in your applications you may have some difficulties 
  
 ### Size matters
 The most common reason is that the element size is too small. 
+
 <p align="center">
   <img src="./pictures/size.png">
-</p><br>
+</p>
+
 When developing mobile applications, make sure that the element in which you are using the gesture-mixins has a large enough 
-size to ensure comfortable operation with at least two fingers. This is especially actual for 
+size to ensure comfortable operation with at least two fingers. This is especially actual for
 [`Pinch-gesture mixin`](https://github.com/Halochkin/Components/tree/master/Gestures/PinchGestureMixin).  
 If the element is too small to make gestures on its area and one finger is outside its borders, it will be equal to using only 
 one finger and the `pinchCallback/event` will not trigger.<br>
@@ -48,11 +50,6 @@ A typical mobile-optimized site contains something like the following:
 ```
 The width property controls the size of the viewport. It can be set to a specific number of pixels like `width=600` or to the special value device-width, which is the width of the screen in CSS pixels at a scale of 100%. (There are corresponding height and device-height values, which may be useful for pages with elements that change size or position based on the viewport height.)
 The initial-scale property controls the zoom level when the page is first loaded. The maximum-scale, minimum-scale, and user-scalable properties control how users are allowed to zoom the page in or out.
-#### 3. Using `Viewport Units`
-With vw / vh, we can set the size of the elements relative to the size of the viewport. Units `vw / vh` are interesting because `1vw` is a unit equal to` 1/100'th` width of the viewport. To assign a width equal to the width of the viewport to an element, for example, set `width:100vw;`
-
-
-
 
 #### Example
 ```html
@@ -60,7 +57,6 @@ With vw / vh, we can set the size of the elements relative to the size of the vi
        <child-element></child-element>
 </parent-element>
 ```
-
 ```javascript
 import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
@@ -94,3 +90,4 @@ This example demonstrates how you can use a mixin outside of an element.
 
 #### References
 1. [Viewport meta tag](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+2. [`touch-action` property](https://developer.mozilla.org/ru/docs/Web/CSS/touch-action)
