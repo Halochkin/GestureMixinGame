@@ -16,7 +16,7 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   flingCallback(detail) {
-    if (!this.spinEvent) {
+    if (this.spinEvent) {
       joiStore.dispatch(Reducer.infoReducer, "block");
     } else {
       joiStore.dispatch(Reducer.pickerSettings, detail);
@@ -32,7 +32,7 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
 
   spinCallback(detail) {
     this.spinEvent = true;
-    this.style.transition = "all " + 3 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
+    this.style.transition = "all " + 5 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 50);
     this.style.transform = `rotateZ(${joiStore.state.rotatioN}deg `;
   }
