@@ -21,6 +21,11 @@ export class Reducer {
     return state;
   }
 
+  static infoReducer(state, display) {
+    state = JoiGraph.setIn(state, "info", display);
+    return state;
+  }
+
   static xDiff(targetX, shurikX) {
     return Math.abs(targetX - shurikX - 300);
   }

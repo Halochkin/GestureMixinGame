@@ -1,14 +1,11 @@
 export class GameInfo extends (HTMLElement) {
   constructor() {
     super();
+    joiStore.observe([""], this.infoDisplay.bind(this));
   }
 
-  static get observedAttributes() {
-    return ['message'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    this.style.display = newValue;
+  infoDisplay() {
+    this.style.display = joiStore.state.info;
   }
 }
 

@@ -4,11 +4,11 @@ import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/G
 import {Reducer} from "./state/Reducer.js";
 import {GameInfo} from "./info.js";
 
-class ShellApp extends (HTMLElement) { //[1]
+class ShellApp extends HTMLElement { //[1]
 
   constructor() {
     super();
-    // this.attachShadow({mode: "open"});
+    this.attachShadow({mode: "open"});
     window.joiStore = new JoiStore({
       startX: (window.innerWidth - 600) / 2,
       startY: window.innerHeight - 550,
@@ -19,6 +19,7 @@ class ShellApp extends (HTMLElement) { //[1]
       ydiff: undefined,
       scores: 0,
       throws: 10,
+      info: ""
     });
     setTimeout(() => joiStore.dispatch(Reducer.startState), 10);
     joiStore.observe(["Y"], this.render.bind(this));
@@ -26,13 +27,20 @@ class ShellApp extends (HTMLElement) { //[1]
     joiStore.compute(["targetCenterY", "newY"], "ydiff", Reducer.yDiff);
   }
 
+
+  spinCallback(detail){
+    alert("APP_SHELL");
+    let shurik = this.swhadowRoot.querySelector("game-shurikien");
+    shurik.style.transform = `rotate(${detail.rotation}deg`;
+  }
+
   render(state) {
     this.style.transition = "3s";
-    this.innerHTML = `
+    this.shadowRoot.innerHTML = `
         <link rel="stylesheet" type="text/css" href="../style/style.css">
+        <game-info></game-info>
         <game-shurikien></game-shurikien>
         <game-panel></game-panel>
-        <game-info></game-info>
         <game-target></game-target>`;
   }
   }
