@@ -12,11 +12,13 @@ When you use gesture mixins in your applications you may have some difficulties 
  
 ### Size matters
 The most common reason is that the element size is too small. 
+
 <p align="center">
   <img src="./pictures/size.png">
-</p><br>
+</p>
+
 When developing mobile applications, make sure that the element in which you are using the gesture-mixins has a large enough 
-size to ensure comfortable operation with at least two fingers. This is especially actual for 
+size to ensure comfortable operation with at least two fingers. This is especially actual for
 [`Pinch-gesture mixin`](https://github.com/Halochkin/Components/tree/master/Gestures/PinchGestureMixin).  
 If the element is too small to make gestures on its area and one finger is outside its borders, it will be equal to using only 
 one finger and the `pinchCallback/event` will not trigger.<br>
@@ -27,7 +29,7 @@ Quite often, when using gestures, you can activate the browser's built-in gestur
 ####  Why this happens and how to fix it?
 This problem will occur every time the largest item size is larger than the device display size.<br>
 You can solve this problem in 3 ways
-#### 1. Using `touch-action:` CSS property
+### 1. Using `touch-action:` CSS property
 The `touch-action` CSS property determines whether touch input MAY trigger default behavior supplied by user agent. This includes, but is not limited to, behaviors such as panning or zooming. 
 The result of touching an element depends on the value of the touch-action property and the standard settings for touching the element and its ancestors. You can selectively disable the standard touch behavior, thus preventing sending if the behavior is not required.<br>
 Also, using `touch-action`, you can remove the delay of 300ms before activating single taps of links and buttons. The delay is set in the default browser to check that the user has really tapped just once. However, this behavior makes the site less responsive. If you set touch-action in the manipulation, any touch of the element will only trigger panning or zoom. Double-click gestures will be ignored, single presses will be executed without delay.<br>
@@ -41,18 +43,13 @@ If you don't want to allow the necessary standard behaviors on an element, such 
 **`pan-up`** touch-driven panning is permitted only if the action starts by panning up. This means the user is dragging their finger downwards. Once scrolling has started, the direction can then be reversed.<br>
 **`pan-down`** touch-driven panning is permitted only if the action starts by panning down. This means the user is dragging their finger upwards. Once scrolling has started, the direction can then be reversed.<br>
 **`pinch-zoom`** touch-driven zooming with multiple-fingers is permitted. Can be combined with pan-x, pan-left or pan-right; and pan-y pan-up or pan-down. <br>
-#### 2. Using the viewport meta tag to control layout on mobile browsers
+### 2. Using the viewport meta tag to control layout on mobile browsers
 A typical mobile-optimized site contains something like the following:
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 The width property controls the size of the viewport. It can be set to a specific number of pixels like `width=600` or to the special value device-width, which is the width of the screen in CSS pixels at a scale of 100%. (There are corresponding height and device-height values, which may be useful for pages with elements that change size or position based on the viewport height.)
 The initial-scale property controls the zoom level when the page is first loaded. The maximum-scale, minimum-scale, and user-scalable properties control how users are allowed to zoom the page in or out.
-#### 3. Using `Viewport Units`
-With vw / vh, we can set the size of the elements relative to the size of the viewport. Units `vw / vh` are interesting because `1vw` is a unit equal to` 1/100'th` width of the viewport. To assign a width equal to the width of the viewport to an element, for example, set `width:100vw;`
-
-
-
 
 #### Example
 ```html
@@ -60,7 +57,6 @@ With vw / vh, we can set the size of the elements relative to the size of the vi
        <child-element></child-element>
 </parent-element>
 ```
-
 ```javascript
 import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
@@ -94,3 +90,4 @@ This example demonstrates how you can use a mixin outside of an element.
 
 #### References
 1. [Viewport meta tag](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+2. [`touch-action` property](https://developer.mozilla.org/ru/docs/Web/CSS/touch-action)
