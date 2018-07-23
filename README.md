@@ -19,23 +19,25 @@ If the element is too small to make gestures on its area and one finger is outsi
 one finger and the `pinchCallback/event` will not trigger.<br>
 If you can't increase the size of the element but you need to add a mixin 
 gesture for it you can add a callback/event to the parent element.
-### Your item is too responsive.
+### Your item is too responsive
 Quite often, when using gestures, you can activate the browser's built-in gestures (which are used to navigate the page, zoom in and out of scrolling and other browser control functions) at the same time as a call/event that will call for unnecessary changes to the field of view.
 ####  Why this happens and how to fix it?
 This problem will occur every time the largest item size is larger than the device display size.<br>
 You can solve this problem in 3 ways
-#### 1. `Touch-action` CSS property
+#### 1. The `touch-action:` CSS property
 The `touch-action` CSS property determines whether touch input MAY trigger default behavior supplied by user agent. This includes, but is not limited to, behaviors such as panning or zooming. 
 The result of touching an element depends on the value of the touch-action property and the standard settings for touching the element and its ancestors. You can selectively disable the standard touch behavior, thus preventing sending if the behavior is not required.<br>
-**`none`** The element of the prohibited standard of conduct at the touch.<br>
+Also, using `touch-action`, you can remove the delay of 300ms before activating single taps of links and buttons. The delay is set in the default browser to check that the user has really tapped just once. However, this behavior makes the site less responsive. If you set touch-action in the manipulation, any touch of the element will only trigger panning or zoom. Double-click gestures will be ignored, single presses will be executed without delay.<br>
+##### `touch-action` values
+**`none`** no default touch behaviors are permitted on the element.<br>
 If you don't want to allow the necessary standard behaviors on an element, such as:<br>
-**`pan-x`** Allowed panning with the fingers of the x-axis Can be combined with pan-y, pan up, pan down and zoom with your fingers. <br>
-**`pan-y`** Allowed panning with your fingers for the y-axis Can be combined with pan-x, pan up, pan down and zoom with your fingers. <br>
-**`pan-left`** You can only pan with your fingers if the action starts by panning to the left. That is, the user moves his finger to the right. After you start scrolling, you can change the direction to the opposite.<br>
-**`pan-right`** You can only pan with your fingers if the action starts by panning to the right. That is, the user moves his finger to the left. After you start scrolling, you can change the direction to the opposite.<br>
-**`pan-up`** You can only pan with your fingers if the action starts by panning up. That is, the user moves his finger down. After you start scrolling, you can change the direction to the opposite.<br>
-**`pan-down`** You can only pan with your fingers if the action starts by panning down. That is, the user moves his finger up. After you start scrolling, you can change the direction to the opposite.<br>
-**`pinch-zoom`** Allowed zoom with a few fingers. Can be combined with pan-x, pan-left, pan-right, pan-y, pan-up, pan-down.<br>
+**`pan-x`** allowed panning with the fingers of the x-axis Can be combined with pan-y, pan up, pan down and zoom with your fingers. <br>
+**`pan-y`** allowed panning with your fingers for the y-axis Can be combined with pan-x, pan up, pan down and zoom with your fingers. <br>
+**`pan-left`** touch-driven panning is permitted only if the action starts by panning to the left. This means the user is dragging their finger to the right. Once scrolling has started, the direction can then be reversed.<br>
+**`pan-right`** touch-driven panning is permitted only if the action starts by panning to the right. This means the user is dragging their finger to the left. Once scrolling has started, the direction can then be reversed.<br>
+**`pan-up`** touch-driven panning is permitted only if the action starts by panning up. This means the user is dragging their finger downwards. Once scrolling has started, the direction can then be reversed.<br>
+**`pan-down`** touch-driven panning is permitted only if the action starts by panning down. This means the user is dragging their finger upwards. Once scrolling has started, the direction can then be reversed.<br>
+**`pinch-zoom`** touch-driven zooming with multiple-fingers is permitted. Can be combined with pan-x, pan-left or pan-right; and pan-y pan-up or pan-down. <br>
 
 
 
