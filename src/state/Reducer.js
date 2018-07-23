@@ -10,7 +10,7 @@ export class Reducer {
   }
 
   static pickerRotation(state, detail) {
-    state = JoiGraph.setIn(state, "rotatioN", state.rotatioN + detail.rotation * 5);
+    state = JoiGraph.setIn(state, "rotatioN", state.rotatioN + detail.rotation * 20);
     return state;
   }
 
