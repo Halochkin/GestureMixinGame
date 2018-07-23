@@ -15,8 +15,8 @@ export class Reducer {
   }
 
   static pickerSettings(state, detail) {
-    state = JoiGraph.setIn(state, "newX", state.startX + detail.distX * 1.5);
-    state = JoiGraph.setIn(state, "newY", state.startY + detail.distY * 1.8);
+    state = JoiGraph.setIn(state, "newX", state.startX + detail.distX * 1.2);
+    state = JoiGraph.setIn(state, "newY", state.startY + detail.distY * 1.2);
     state = JoiGraph.setIn(state, "rotatioN", 0);
     return state;
   }
