@@ -29,7 +29,7 @@ Quite often, when using gestures, you can activate the browser's built-in gestur
 ####  Why this happens and how to fix it?
 This problem will occur every time the largest item size is larger than the device display size.<br>
 You can solve this problem in 3 ways
-#### 1. Using `touch-action:` CSS property
+### 1. Using `touch-action:` CSS property
 The `touch-action` CSS property determines whether touch input MAY trigger default behavior supplied by user agent. This includes, but is not limited to, behaviors such as panning or zooming. 
 The result of touching an element depends on the value of the touch-action property and the standard settings for touching the element and its ancestors. You can selectively disable the standard touch behavior, thus preventing sending if the behavior is not required.<br>
 Also, using `touch-action`, you can remove the delay of 300ms before activating single taps of links and buttons. The delay is set in the default browser to check that the user has really tapped just once. However, this behavior makes the site less responsive. If you set touch-action in the manipulation, any touch of the element will only trigger panning or zoom. Double-click gestures will be ignored, single presses will be executed without delay.<br>
@@ -43,7 +43,7 @@ If you don't want to allow the necessary standard behaviors on an element, such 
 **`pan-up`** touch-driven panning is permitted only if the action starts by panning up. This means the user is dragging their finger downwards. Once scrolling has started, the direction can then be reversed.<br>
 **`pan-down`** touch-driven panning is permitted only if the action starts by panning down. This means the user is dragging their finger upwards. Once scrolling has started, the direction can then be reversed.<br>
 **`pinch-zoom`** touch-driven zooming with multiple-fingers is permitted. Can be combined with pan-x, pan-left or pan-right; and pan-y pan-up or pan-down. <br>
-#### 2. Using the viewport meta tag to control layout on mobile browsers
+### 2. Using the viewport meta tag to control layout on mobile browsers
 A typical mobile-optimized site contains something like the following:
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
