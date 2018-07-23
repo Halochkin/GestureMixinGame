@@ -1,6 +1,6 @@
 ## Deadly Ninja Throw
 
-This game demonstrates the application of the gesture of mixins. The aim of the game is to get a [shuriken](https://en.wikipedia.org/wiki/Shuriken) at the target.
+This comic game demonstrates the application of the gesture of mixins. The aim of the game is to get a [shuriken](https://en.wikipedia.org/wiki/Shuriken) at the target.
 <p align="center">
   <img src="./pictures/logo.png">
 </p><br>
@@ -35,13 +35,8 @@ class Parent extends PinchGesture(HTMLElement){
     let child = document.querySelector("child-element");
     child.style.transform = `rotate(${detail.rotation}deg`;
   }
-<<<<<<< HEAD
 }
-=======
-  
-}
-
->>>>>>> github2/master
+ 
 class Child extends DragFlingGesture(HTMLElement){
   
     constructor(){
