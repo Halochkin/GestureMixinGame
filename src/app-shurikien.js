@@ -16,7 +16,7 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   flingCallback(detail) {
-    if (this.spinEvent) {
+    if (!this.spinEvent) {
       joiStore.dispatch(Reducer.infoReducer, "block");
     } else {
       joiStore.dispatch(Reducer.pickerSettings, detail);
