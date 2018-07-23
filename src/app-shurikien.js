@@ -31,6 +31,7 @@ class GameShurik extends PinchGesture(DragFlingGesture(HTMLElement)) {
   }
 
   spinCallback(detail) {
+    alert(detail.lastspinMotion);
     this.spinEvent = true;
     this.style.transition = "all " + 5 + "s cubic-bezier(0.39, 0.58, 0.57, 1)";
     setInterval(() => joiStore.dispatch(Reducer.pickerRotation, detail), 50);
