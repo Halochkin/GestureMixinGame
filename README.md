@@ -10,7 +10,7 @@ When you use gesture mixins in your applications you may have some difficulties 
  callbacks/events because of which they may not trigger immediately or not be called at all.
  In this discussion, I want to describe the main reasons for the incorrect work of mixins.
  
-#### Size matters
+### Size matters
 The most common reason is that the element size is too small. 
 When developing mobile applications, make sure that the element in which you are using the gesture-mixins has a large enough 
 size to ensure comfortable operation with at least two fingers. This is especially actual for 
@@ -19,6 +19,32 @@ If the element is too small to make gestures on its area and one finger is outsi
 one finger and the `pinchCallback/event` will not trigger.<br>
 If you can't increase the size of the element but you need to add a mixin 
 gesture for it you can add a callback/event to the parent element.
+### Your item is too responsive.
+Quite often, when using gestures, you can activate the browser's built-in gestures (which are used to navigate the page, zoom in and out of scrolling and other browser control functions) at the same time as a call/event that will call for unnecessary changes to the field of view.
+####  Why this happens and how to fix it?
+This problem will occur every time the largest item size is larger than the device display size.<br>
+You can solve this problem in 3 ways
+#### 1. `Touch-action` CSS property
+The `touch-action` CSS property determines whether touch input MAY trigger default behavior supplied by user agent. This includes, but is not limited to, behaviors such as panning or zooming. 
+The result of touching an element depends on the value of the touch-action property and the standard settings for touching the element and its ancestors. You can selectively disable the standard touch behavior, thus preventing sending if the behavior is not required.
+**`none`** The element of the prohibited standard of conduct at the touch.<br>
+If you don't want to allow the necessary standard behaviors on an element, such as:<br>
+**`pan-x`** Allowed panning with the fingers of the x-axis Can be combined with pan-y, pan up, pan down and zoom with your fingers. 
+**`pan-y`** Allowed panning with your fingers for the y-axis Can be combined with pan-x, pan up, pan down and zoom with your fingers. 
+**`pan-left`** You can only pan with your fingers if the action starts by panning to the left. That is, the user moves his finger to the right. After you start scrolling, you can change the direction to the opposite.
+**`pan-right`** You can only pan with your fingers if the action starts by panning to the right. That is, the user moves his finger to the left. After you start scrolling, you can change the direction to the opposite.
+**`pan-up`** You can only pan with your fingers if the action starts by panning up. That is, the user moves his finger down. After you start scrolling, you can change the direction to the opposite.
+**`pan-down`** You can only pan with your fingers if the action starts by panning down. That is, the user moves his finger up. After you start scrolling, you can change the direction to the opposite.
+**`pinch-zoom`** Allowed zoom with a few fingers. Can be combined with pan-x, pan-left, pan-right, pan-y, pan-up, pan-down.
+
+
+
+
+
+
+
+
+
 #### Example
 ```html
 <parent-element>
