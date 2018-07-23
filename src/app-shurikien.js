@@ -1,4 +1,4 @@
-import {PinchGesture} from "https://rawgit.com/Halochkin/Components/master/Gestures/PinchGestureMixin/src/PinchMixin.js";
+import {PinchGesture} from "https://cdn.rawgit.com/Halochkin/Components/442b56d9/Gestures/PinchGestureMixin/src/PinchMixin.js";
 import {DragFlingGesture} from 'https://rawgit.com/Halochkin/Components/master/Gestures/DragFlingMixin/src/DragFlingGestureMixin.js';
 import {Reducer} from "./state/Reducer.js";
 
